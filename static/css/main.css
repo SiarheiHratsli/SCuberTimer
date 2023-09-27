@@ -1,0 +1,1611 @@
+.navbar-brand {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 2em;
+}
+
+#auth_btn {
+    border-radius: 10px;
+    color: white;
+    border: 2px solid #4CAF50;
+    transition: background-color 0.4s ease
+}
+
+#auth_button {
+    border-radius: 10px;
+    color: white;
+    border: 2px solid rgba(76, 175, 80, 0);
+    transition: background-color 0.4s ease
+}
+
+#auth_button:hover {
+    background-color: #4CAF50;
+    color: #060606;
+}
+
+#auth_btn:hover {
+    background-color: #4CAF50;
+}
+
+#auth_btn:active {
+    border: 2px solid #3d8c40;
+    background-color: #3d8c40;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+.scramble {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #2A9134;
+    font-size: 4.8dvmin;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    margin-top: 4vh;
+}
+
+/*подсветка полей ввода*/
+input:valid {
+    border-color: #2A9134;
+}
+
+input:invalid {
+    border-color: red;
+}
+/*подсветка полей ввода*/
+
+
+/*
+
+МОЖНО ПЕРЕДЕЛАТЬ :)
+
+*/
+.navbar-bg {
+    width: 100%;
+    background-color: #161216;
+    min-width: 320px;
+}
+
+.compleate {
+    background-color: rgba(40, 231, 47, 0.25);
+    height: 40px;
+    display: grid;
+    width: 100%;
+    place-items: center;
+    font-size: 18px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 500;
+}
+
+.element_time_window {
+    flex-basis: 56px;
+    height: 28px;
+    margin: 3px auto;
+    background: #FFD7B5;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+#d {
+    margin-left: -8px;
+}
+
+/* Окно графика профиль */
+
+.graph-window {
+    margin-top: 136px;
+    margin-left: 653px;
+    position: absolute;
+    width: 301px;
+    height: 225px;
+    border-radius: 15px;
+    background: rgba(198, 229, 255, 0.30);
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.graf_img {
+    margin-left: 5px;
+    width: 285px;
+    height: 215px;
+    margin-top: 3px;
+}
+
+/* Окно графика профиль */
+
+/* Окно лучшего времени профиль */
+
+.best-time-window {
+    margin-left: 426px;
+    margin-top: 298px;
+    position: absolute;
+    width: 206px;
+    height: 63px;
+    border-radius: 15px;
+    background: rgba(198, 229, 255, 0.30);
+    box-shadow: -2px 5px 10px 0 rgba(0, 0, 0, 0.25);
+    padding-left: 12px;
+}
+
+.list-best-time {
+    width: 190px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    margin-top: -16px;
+    margin-left: -4px;
+}
+
+.best-5-text {
+    width: 60px;
+    height: 18px;
+    flex-shrink: 0;
+    color: #060606;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    margin-top: 3px;
+}
+
+.col-3 {
+    width: 52px;
+    height: 18px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    margin-top: 8px;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.aa {
+    background: rgba(88, 214, 72, 0.20);
+    margin-left: 20px;
+    color: #37853F;
+}
+
+.bb {
+    background: rgba(255, 165, 0, 0.20);
+    margin-left: 9px;
+    color: #F39D00;
+}
+
+.cc {
+    background: rgba(255, 53, 53, 0.20);
+    margin-left: 9px;
+    color: #E24B4B;
+}
+
+/* Окно лучшего времени профиль */
+
+.settings-window {
+    margin-top: 222px;
+    margin-left: 170px;
+    position: absolute;
+    width: 235px;
+    height: 119px;
+    border-radius: 15px;
+    background: rgba(198, 229, 255, 0.30);
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.settings-col-3 {
+    width: 219px;
+    height: 29px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    margin-top: 8px;
+    border: none;
+}
+
+.settings-col-3:hover {
+    background-color: rgba(243, 243, 243, 0.85);
+}
+
+.settings-col-3:active {
+    background-color: rgba(231, 231, 231, 0.85);
+}
+
+.settings {
+    color: #000;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0 auto;
+    padding-left: 0;
+    margin-left: 0;
+    text-decoration: none;
+}
+.exit {
+    color: #E24B4B;
+}
+
+/* Окно кнопок настроек профиль */
+
+/* Окно кол-ва сборок профиль */
+
+.count-window {
+    margin-left: 810px;
+    position: absolute;
+    width: 144px;
+    height: 116px;
+    border-radius: 15px;
+    background: rgba(198, 229, 255, 0.30);
+    box-shadow: -2px 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.count-window-row-1 {
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    width: 128px;
+    height: 42px;
+    /*flex-shrink: 0;*/
+    border-radius: 10px;
+    background: rgba(88, 214, 72, 0.35);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    margin: 8px auto;
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+
+.count-window-row-2 {
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    background: rgba(255, 53, 53, 0.35);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    margin-left: 16px;
+}
+
+.count-window-row-3 {
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    background: rgba(255, 165, 0, 0.35);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    margin-left: 8px;
+}
+
+.count-window-col-1 {
+    width: 39px;
+    height: 28px;
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-right: 32px;
+}
+
+.count-window-col-2 {
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.count-window-col-3 {
+    width: 56px;
+    height: 29px;
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    margin-top: -25px;
+    margin-left: -15px;
+}
+
+.count-window-col-4 {
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    margin-top: 12px;
+    margin-left: -8px;
+}
+
+/* Окно кол-ва сборок профиль */
+
+/* Окно последних сборок профиль*/
+
+.time-window {
+    margin-left: 653px;
+    position: absolute;
+    width: 136px;
+    height: 115px;
+    border-radius: 15px;
+    background: #FFF1E5;
+    box-shadow: -2px 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.time-window-col {
+    width: 56px;
+    height: 27px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #FFD7B5;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    margin: 5px auto;
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.time-window {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Окно последних сборок профиль*/
+
+/* Окно друзей профиль */
+
+.friends {
+    margin-left: 426px;
+    position: absolute;
+    width: 206px;
+    height: 277px;
+    border-radius: 15px;
+    background: rgba(198, 229, 255, 0.30);
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.friends-list-col {
+    width: 190px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    margin: 4px auto;
+}
+
+.friends-text {
+    color: #060606;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 8px;
+    margin-bottom: 3px;
+    margin-left: 20px;
+}
+
+.friend-img {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.friend-name {
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-left: 8px;
+}
+
+.status-online {
+    background: #4A8F41;
+}
+
+.status-offline {
+    background: #FFA500;
+}
+
+.status-online, .status-offline {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 12px;
+    margin-left: 45px;
+}
+
+.status-text {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.52);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 11px;
+    margin-left: 53px;
+}
+
+/* Окно друзей профиль */
+
+/* Окно юзера профиль */
+
+.user-window {
+    margin-left: 170px;
+    position: absolute;
+    width: 235px;
+    height: 201px;
+    border-radius: 15px;
+    background: rgba(198, 229, 255, 0.30);
+    box-shadow: -2px 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.profile {
+    margin-top: 50px;
+}
+
+.name {
+    color: #060606;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 11px;
+    margin-left: 11px;
+}
+
+.email {
+    color: rgba(0, 0, 0, 0.52);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-top: -15px;
+    margin-left: 11px;
+}
+
+.profile_btn {
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+
+}
+
+.profile_img:hover {
+    background-color: rgba(245, 40, 40, 0.4);
+}
+
+.profile_img:active {
+    background-color: rgba(227, 49, 49, 0.25);
+}
+
+.profile_img {
+    /*margin-left: -6px;*/
+    /*margin-top: -1px;*/
+    width: 80px;
+    height: 80px;
+}
+
+.container_profile_img {
+    margin-left: -6px;
+    margin-top: -1px;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.container_profile_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-info {
+    margin-top: 8px;
+    margin-left: 8px;
+    width: 219px;
+    height: 185px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+}
+/* Окно юзера профиль */
+
+@media (min-width: 320px) and (max-width: 460px) {
+    body {
+        overflow: auto;
+    }
+
+    .btn {
+        padding: 5px 5px;
+        font-size: 12px;
+    }
+    #logo-text {
+        font-size: 18px;
+    }
+    .navbar-bg {
+        height: 53px;
+    }
+    /* Окно юзера профиль */
+    .user-window {
+        width: 178px;
+        height: 69px;
+        margin-left: 18px;
+        margin-top: -30px;
+    }
+
+    .profile_img {
+        width: 43px;
+        height: 43px;
+        margin-top: 6px;
+        margin-left: 7px;
+    }
+
+    .user-info {
+        width: 164px;
+        height: 55px;
+        margin-top: 6px;
+        margin-left: 7px;
+    }
+
+    .name {
+        position: absolute;
+        font-size: 16px;
+        margin-left: 60px;
+        margin-top: -43px;
+    }
+
+    .email {
+        position: absolute;
+        font-size: 10px;
+        margin-left: 60px;
+        margin-top: -20px;
+    }
+
+    /* Окно настроек профиль*/
+    .settings-window {
+        margin-left: 206px;
+        margin-top: 197px;
+        width: 121px;
+        height: 49px;
+    }
+
+    .settings-col-1,
+    .settings-col-2 {
+        margin: 0 auto;
+        margin-top: 5px;
+        width: 110px;
+        height: 17px;
+    }
+
+    .settings {
+        font-size: 9px
+    }
+
+    /* Окно друзья профиль */
+    .friends {
+        margin-left: 18px;
+        margin-top: 196px;
+        width: 177px;
+        height: 238px;
+    }
+
+    .friends-list-col {
+        width: 163px;
+        height: 44px;
+        margin-top: 3px;
+    }
+
+    .friend-name {
+        font-size: 11px;
+    }
+
+    .status-text {
+        font-size: 8px
+    }
+
+    .status-online,
+    .status-offline {
+        width: 4px;
+        height: 4px;
+    }
+
+    .best-time-window {
+        margin-left: 18px;
+        margin-top: 50px;
+        width: 177px;
+        height: 54px;
+    }
+
+    .col-3 {
+        width: 44px;
+        height: 15px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+
+    .best-5-text {
+        font-size: 10px;
+    }
+
+    .list-best-time {
+        width: 163px;
+        height: 29px;
+        margin-top: -18px;
+        margin-left: -4px;
+    }
+
+    /*.time-window-container {*/
+    /*    display: grid;*/
+    /*    grid-template-columns: repeat(3, 1fr); !* 3 столбца *!*/
+    /*    grid-template-rows: repeat(2, auto); !* 2 строки *!*/
+    /*    gap: 16px; !* Отступы между элементами *!*/
+    /*}*/
+
+    .time-window {
+        width: 121px;
+        height: 103px;
+        margin-left: 206px;
+        margin-top: -30px;
+    }
+
+    .time-window-col {
+        width: 50px;
+        height: 25px;
+        margin: 4px auto;
+        margin-top: 4px;
+    }
+
+    .count-window {
+        margin-left: 18px;
+        margin-top: 115px;
+        width: 178px;
+        height: 70px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 11px; /* Увеличьте это значение для нужного отступа между окошками */
+    }
+
+    .count-window-row-1 {
+        width: 57px;
+        height: 56px;
+        margin-left: 20px;
+        flex-direction: column;
+    }
+
+
+    .count-window-row-2 {
+        width: 46px;
+        height: 42px;
+        margin-top: 8px;
+    }
+
+    .count-window-row-3 {
+        width: 46px;
+        height: 42px;
+        margin-top: -53px;
+        margin-left: 70px;
+    }
+
+    .count-window-col-1 {
+        font-size: 8px;
+        font-weight: 800;
+        margin-top: -5px;
+        margin-left: 13px;
+    }
+
+    .count-window-col-2 {
+        font-size: 12px;
+        font-weight: 700;
+        margin-left: -25px;
+    }
+
+    .count-window-col-3 {
+        width: 56px;
+        height: 29px;
+        font-size: 8px;
+        font-weight: 700;
+        margin-top: -25px;
+        margin-left: -20px;
+    }
+    #d {
+        font-size: 8px;
+        margin-top: -25px;
+        margin-left: -15px;
+    }
+
+    .count-window-col-4 {
+        font-size: 12px;
+        font-weight: 700;
+        margin-top: 12px;
+        margin-left: -6px;
+    }
+
+    .graph-window {
+        margin-left: 206px;
+        margin-top: 84px;
+        width: 121px;
+        height: 102px;
+    }
+
+    .graf_img {
+        margin-left: 5px;
+        width: 110px;
+        height: 92px;
+        margin-top: 3px;
+    }
+}
+
+/*@media (min-width: 420px) {*/
+/*    .btn {*/
+/*        padding: 5px 5px;*/
+/*        font-size: 12px;*/
+/*    }*/
+/*    #logo-text {*/
+/*        font-size: 18px;*/
+/*    }*/
+/*    .navbar-bg {*/
+/*        height: 53px;*/
+/*    }*/
+
+/*        !* Окно юзера профиль *!*/
+/*    .user-window {*/
+/*        width: 200px;*/
+/*        height: 193px;*/
+/*        margin-left: 45px;*/
+/*    }*/
+
+/*    .user-info {*/
+/*        width: 187px;*/
+/*        height: 177px;*/
+/*        border-radius: 15px;*/
+/*        background: rgba(255, 255, 255, 0.85);*/
+/*        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);*/
+/*    }*/
+
+/*    .name {*/
+/*        font-size: 22px;*/
+/*    }*/
+
+/*    .email {*/
+/*        font-size: 16px;*/
+/*    }*/
+
+/*    !* Окно настроек профиль*!*/
+/*    .settings-window {*/
+/*        margin-top: 415px;*/
+/*        margin-left: 45px;*/
+/*        width: 203px;*/
+/*        height: 82px;*/
+/*    }*/
+
+/*    .settings-col-1 {*/
+/*        width: 187px;*/
+/*        height: 29px;*/
+/*    }*/
+
+/*    .settings-col-2 {*/
+/*        width: 187px;*/
+/*        height: 29px;*/
+/*    }*/
+
+/*    !* Окно друзья профиль *!*/
+/*    .friends {*/
+/*        margin-left: 269px;*/
+/*        width: 206px;*/
+/*        height: 277px;*/
+/*    }*/
+
+/*    .friends-list-col {*/
+/*        width: 190px;*/
+/*        height: 52px;*/
+/*    }*/
+
+/*    .best-time-window {*/
+/*        margin-top: 298px;*/
+/*        margin-left: 269px;*/
+/*        width: 206px;*/
+/*        height: 63px;*/
+/*    }*/
+
+/*    .list-best-time {*/
+/*        width: 190px;*/
+/*        height: 34px;*/
+/*        margin-top: -16px;*/
+/*        margin-left: -4px;*/
+/*    }*/
+
+/*    .time-window-container {*/
+/*        display: grid;*/
+/*        grid-template-columns: repeat(3, 1fr); !* 3 столбца *!*/
+/*        grid-template-rows: repeat(2, auto); !* 2 строки *!*/
+/*        gap: 16px; !* Отступы между элементами *!*/
+/*    }*/
+
+/*    .time-window {*/
+/*        width: 200px;*/
+/*        height: 80px;*/
+/*        margin-left: 45px;*/
+/*        margin-top: 214px;*/
+/*    }*/
+
+/*    .time-window-col {*/
+/*        width: 56px;*/
+/*        height: 28px;*/
+/*        margin: 6px auto;*/
+/*    }*/
+
+/*    .count-window {*/
+/*        margin-left: 45px;*/
+/*        margin-top: 315px;*/
+/*        width: 200px;*/
+/*        height: 79px;*/
+/*        display: grid;*/
+/*        grid-template-columns: repeat(3, 1fr);*/
+/*        grid-template-rows: auto;*/
+/*        gap: 11px; !* Увеличьте это значение для нужного отступа между окошками *!*/
+/*    }*/
+
+/*    .count-window-row-1 {*/
+/*        width: 64px;*/
+/*        height: 63px;*/
+/*        margin-left: 22px;*/
+
+/*        flex-direction: column;*/
+/*    }*/
+
+
+/*    .count-window-row-2 {*/
+/*        width: 52px;*/
+/*        height: 47px;*/
+/*        margin-top: 8px;*/
+/*    }*/
+
+/*    .count-window-row-3 {*/
+/*        width: 52px;*/
+/*        height: 47px;*/
+/*        margin-top: -59px;*/
+/*        margin-left: 75px;*/
+/*    }*/
+
+/*    .count-window-col-1 {*/
+/*        font-size: 9px;*/
+/*        font-weight: 800;*/
+/*        margin-top: -5px;*/
+/*        margin-left: 10px;*/
+/*    }*/
+
+/*    .count-window-col-2 {*/
+/*        font-size: 16px;*/
+/*        font-weight: 700;*/
+/*        margin-left: -25px;*/
+/*    }*/
+
+/*    .count-window-col-3 {*/
+/*        width: 56px;*/
+/*        height: 29px;*/
+/*        font-size: 14px;*/
+/*        font-weight: 700;*/
+/*        margin-top: -25px;*/
+/*        margin-left: -15px;*/
+/*    }*/
+
+/*    .count-window-col-4 {*/
+/*        font-size: 14px;*/
+/*        font-weight: 700;*/
+/*        margin-top: 12px;*/
+/*        margin-left: -8px;*/
+/*    }*/
+
+/*    .graph-window {*/
+/*        margin-top: 382px;*/
+/*        margin-left: 269px;*/
+/*        width: 200px;*/
+/*        height: 163px;*/
+/*    }*/
+
+/*    .graf_img {*/
+/*        margin-left: 5px;*/
+/*        width: 190px;*/
+/*        height: 150px;*/
+/*        margin-top: 3px;*/
+/*    }*/
+/*}*/
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .btn {
+        padding: 5px 5px;
+        font-size: 16px;
+        border-radius: 1px;
+    }
+
+    #logo-text {
+        font-size: 22px;
+    }
+
+    .navbar-bg {
+        height: 59px;
+    }
+
+    /* Окно юзера профиль */
+    .user-window {
+        width: 203px;
+        height: 193px;
+        margin-left: 10px;
+    }
+
+    .user-info {
+        width: 187px;
+        height: 177px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .name {
+        font-size: 22px;
+    }
+
+    .email {
+        font-size: 16px;
+    }
+
+    /* Окно настроек профиль*/
+    .settings-window {
+        margin-left: 10px;
+        width: 203px;
+        height: 82px;
+    }
+
+    .settings-col-1 {
+        width: 187px;
+        height: 29px;
+    }
+
+    .settings-col-2 {
+        width: 187px;
+        height: 29px;
+    }
+
+    /* Окно друзья профиль */
+    .friends {
+        min-height: 97px;
+        margin-left: 234px;
+        width: 206px;
+        height: 277px;
+    }
+
+    .friends-list-col {
+        width: 190px;
+        height: 52px;
+    }
+
+    .best-time-window {
+        margin-left: 234px;
+        margin-top: 298px;
+        width: 206px;
+        height: 63px;
+    }
+
+    .list-best-time {
+        width: 190px;
+        height: 34px;
+        margin-top: -16px;
+        margin-left: -4px;
+    }
+
+    .time-window-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 столбца */
+        grid-template-rows: repeat(2, auto); /* 2 строки */
+        gap: 16px; /* Отступы между элементами */
+    }
+
+    .time-window {
+        margin-left: 461px;
+        width: 200px;
+        height: 80px;
+    }
+
+    .time-window-col {
+        width: 56px;
+        height: 28px;
+        margin: 6px auto;
+    }
+
+    .count-window {
+        margin-left: 461px;
+        margin-top: 101px;
+        width: 200px;
+        height: 79px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 11px; /* Увеличьте это значение для нужного отступа между окошками */
+    }
+
+    .count-window-row-1 {
+        width: 64px;
+        height: 63px;
+        margin-left: 22px;
+
+        flex-direction: column;
+    }
+
+
+    .count-window-row-2 {
+        width: 52px;
+        height: 47px;
+        margin-top: 8px;
+    }
+
+    .count-window-row-3 {
+        width: 52px;
+        height: 47px;
+        margin-top: -59px;
+        margin-left: 75px;
+    }
+
+    .count-window-col-1 {
+        font-size: 9px;
+        font-weight: 800;
+        margin-top: -5px;
+        margin-left: 10px;
+    }
+
+    .count-window-col-2 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: -25px;
+    }
+
+    .count-window-col-3 {
+        width: 56px;
+        height: 29px;
+        font-size: 14px;
+        font-weight: 700;
+        margin-top: -25px;
+        margin-left: -15px;
+    }
+
+    .count-window-col-4 {
+        font-size: 14px;
+        font-weight: 700;
+        margin-top: 12px;
+        margin-left: -8px;
+    }
+
+    .graph-window {
+        margin-top: 201px;
+        margin-left: 461px;
+        width: 200px;
+        height: 163px;
+    }
+
+    .graf_img {
+        margin-left: 5px;
+        width: 190px;
+        height: 150px;
+        margin-top: 3px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .btn {
+        padding: 5px 10px;
+        font-size: 18px;
+        border-radius: 2px;
+    }
+    #logo-text {
+        font-size: 26px;
+    }
+    .navbar-bg {
+        height: 65px;
+    }
+    /* Окно юзера профиль */
+    .user-window {
+        width: 235px;
+        height: 193px;
+    }
+    .user-info {
+    width: 219px;
+    height: 177px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+    }
+    .name {
+        font-size: 24px;
+    }
+    .email {
+        font-size: 18px;
+    }
+
+    /* Окно настроек профиль */
+    .settings-window {
+        width: 235px;
+        height: 82px;
+    }
+
+    .settings-col-1 {
+        width: 219px;
+        height: 29px;
+    }
+
+    .settings-col-2 {
+        width: 219px;
+        height: 29px;
+    }
+
+    /* Окно друзья профиль */
+    .friends {
+        width: 206px;
+        height: 277px;
+    }
+
+    .friends-list-col {
+        width: 190px;
+        height: 52px;
+    }
+
+/*    Окно лучшего времени профиль*/
+    .best-time-window {
+        margin-left: 426px;
+        margin-top: 298px;
+        width: 206px;
+        height: 63px;
+    }
+    .time-window {
+        margin-left: 653px;
+        width: 136px;
+        height: 115px;
+    }
+
+    .time-window-col {
+        width: 56px;
+        height: 27px;
+    }
+
+    .count-window {
+        margin-left: 810px;
+        width: 144px;
+        height: 116px;
+    }
+
+    .count-window-row-1 {
+        width: 128px;
+        height: 42px;
+    }
+
+
+    .count-window-row-2 {
+        width: 60px;
+        height: 50px;
+    }
+
+    .count-window-row-3 {
+        width: 60px;
+        height: 50px;
+    }
+
+    .count-window-col-1 {
+        width: 39px;
+        height: 28px;
+        font-size: 11px;
+        font-weight: 800;
+        margin-right: 32px;
+    }
+
+    .count-window-col-2 {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .count-window-col-3 {
+        width: 56px;
+        height: 29px;
+        font-size: 14px;
+        font-weight: 700;
+        /*margin-top: 0px;*/
+        /*margin-left: -px;*/
+    }
+
+    .count-window-col-4 {
+        font-size: 14px;
+        font-weight: 700;
+        /*margin-top: 12px;*/
+        /*margin-left: -8px;*/
+    }
+    .graph-window {
+        margin-top: 136px;
+        margin-left: 653px;
+        width: 301px;
+        height: 225px;
+    }
+
+    .graf_img {
+        margin-left: 5px;
+        width: 285px;
+        height: 215px;
+        margin-top: 3px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .btn {
+        padding: 6px 12px;
+        font-size: 20px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+    }
+    #logo-text {
+        font-size: 32px;
+    }
+    .navbar-bg {
+        height: 74px;
+    }
+}
+
+.time {
+    color: #254E70;
+    font-size: 150px;
+    font-family: 'Courier Prime', monospace;
+    font-style: normal;
+    font-weight: 700;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+}
+
+#timer {
+    height: 130px;
+}
+
+.score {
+    margin-top: 120px;
+    margin-left: 980px;
+    width: 250px;
+    height: 180px
+}
+
+.col {
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.1s ease-out;
+}
+.modal.show {
+    visibility: visible;
+    z-index: 100;
+    opacity: 1;
+}
+
+.modal .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #060606;
+    opacity: 0.7;
+    z-index: 0;
+
+}
+
+.modal_window {
+    position: relative;
+    z-index: 2;
+    width: 550px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    padding: 30px;
+}
+
+.btn-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.btn-time:hover {
+    background-color: #fccea7;
+}
+
+.btn-time:active {
+    background-color: #e0b48f;
+}
+
+.time_modal_window {
+    color: #67AD5B;
+}
+
+.btn-friend,
+.btn-add-friend,
+.btn-time {
+    border: none;
+}
+
+.btn-friend:hover,
+.btn-add-friend:hover {
+    background-color: rgba(243, 243, 243, 0.85);
+}
+
+.btn-friend:active,
+.btn-add-friend:active {
+    background-color: rgba(231, 231, 231, 0.85);
+}
+
+.flash {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(40, 231, 47, 0.3);
+    font-family: 'Nunito', sans-serif;
+    height: 35px;
+    font-size: 16px;
+    font-weight: 450;
+}
+
+
+#plotly-graph {
+    margin-left: 5px;
+}
+
+#profile_img {
+    width: 400px;
+}
+
+.profile_img_o {
+    z-index: 100;
+}
+.profile_img_o {
+    position: absolute;
+
+    margin-top: -80px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.profile_img_o:hover {
+    background-color: rgba(107, 100, 100, 0.25);
+    transition: background-color 0.2s ease;
+}
+
+.profile_img_o:active {
+    background-color: rgba(107, 100, 100, 0.5);
+    transition: background-color 0.1s ease;
+}
+
+.singup-container {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -40px;
+}
+
+.abc {
+    position: absolute;
+    margin-top: -420px;
+    margin-left: 60px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.col {
+    width: 220px;
+    height: 33px;
+}
+
+.gx-5 {
+    margin-top: 10px;
+}
+
+.singup-input {
+    width: 240px;
+    height: 33px;
+}
+
+.singup-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    width: 305px;
+}
+
+.btn1 {
+    color: white;
+    height: 40px;
+    background-color: #67AD5B;
+    border-radius: 13px;
+    border: 2px solid #67AD5B;
+}
+
+#auth_bt{
+    margin-left: 65px;
+    margin-top: -68px;
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 15px;
+    color: #254E70;
+    background-color: white;
+    border: 2px solid #254E70;
+    transition: background-color 0.4s ease;
+    height: 40px;
+    font-family: Nunito, sans-serif;
+    font-weight: 500;
+}
+
+#auth_bt:hover {
+    color: white;
+    height: 40px;
+    background-color: #254E70;
+    border-radius: 15px;
+    border: 2px solid #254E70;
+}
+
+#auth_bt:active {
+    background-color: #eeeeee;
+    color: black;
+    border: 2px solid #254E70;
+    border-radius: 15px;
+    transition: 0.1s ease;
+}
+
+#auth_btnn1 {
+    font-size: 16px;
+    font-family: Nunito, sans-serif;
+    font-weight: 700;
+    margin-left: 360px;
+    margin-top: 10px;
+    color: white;
+    height: 40px;
+    background-color: #67AD5B;
+    border-radius: 13px;
+    border: 2px solid #67AD5B;
+}
+
+#auth_btnn {
+    font-size: 16px;
+    font-family: Nunito, sans-serif;
+    font-weight: 700;
+    margin-left: 315px;
+    margin-top: 10px;
+    color: white;
+    height: 40px;
+    background-color: #67AD5B;
+    border-radius: 13px;
+    border: 2px solid #67AD5B;
+}
+
+#auth_btnn:hover,
+#auth_btnn1:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #67AD5B;
+    border-radius: 13px;
+    transition: 0.3s ease;
+}
+
+#auth_btnn:active,
+#auth_btnn1:active {
+    background-color: #eeeeee;
+    color: black;
+    border: 2px solid #5e9f53;
+    border-radius: 13px;
+    transition: 0.1s ease;
+}
+
+/*.pos {*/
+/*    margin-top: -40px;*/
+/*    margin-left: 100px;*/
+/*}*/
+
+#auth_btnnn {
+    display: inline-block;
+    padding: 4px 11px;
+    margin-left: 150px;
+    margin-top: -68px;
+    /*width: 73px;*/
+    border-radius: 15px;
+    color: #254E70;
+    background-color: white;
+    border: 2px solid #254E70;
+    transition: background-color 0.4s ease;
+    height: 40px;
+    font-family: Nunito, sans-serif;
+    font-weight: 500;
+}
+
+#auth_btnnn:hover {
+    color: white;
+    height: 40px;
+    background-color: #254E70;
+    border-radius: 15px;
+    border: 2px solid #254E70;
+}
+
+#auth_btnnn:active {
+    background-color: #eeeeee;
+    color: black;
+    border: 2px solid #254E70;
+    border-radius: 15px;
+    transition: 0.1s ease;
+}
+
+.kk {
+    width: 400px;
+}
+
+.container-timer-btn {
+    position: sticky;
+    margin-top: 260px;
+    margin-left: 473px;
+}
+
+.bttn,
+.del-friend {
+    border-radius: 15px;
+}
+
+.g-recaptcha {
+    margin-left: -50px;
+    width: 301px;
+}

@@ -1,0 +1,369 @@
+{% extends 'base.html' %}
+
+{% block head %}
+        <title>SCuberTimer Профиль {{ username }}</title>
+{% endblock %}
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+{% block body %}
+        {% for msg in get_flashed_messages() %}
+        <div class="flash">{{ msg }}</div>
+    {% endfor %}
+<div class="container">
+    <div class="profile">
+        <article class="user-window" >
+            <div class="user-info">
+                <button class="profile_btn" easy-toggle=".user-modal" easy-class="show">
+                    <div class="container_profile_img">
+                        <img src="{{ profile_img }}" class="profile_img">
+                        <div class="profile_img_o"></div>
+                    </div>
+                </button>
+                <p class="name">{{ username }}</p>
+                <p class="email">{{ email }}</p>
+                <p class="email">id: {{ unique_id }}</p>
+            </div>
+        </article>
+
+        <!--обработка нажатий-->
+        <div class="modal user-modal">
+            <div class="modal_window">
+                <form method="post" action="{{ url_for('change_profile_img') }}" enctype="multipart/form-data" onsubmit="return validateForm()">
+                    <h3>Загрузить новое изображение</h3>
+                    <p style="color: rgba(255,0,0,0.68)">Рекомендуется перед загрузкой изображения обрезать для корректного отображения!</p>
+                    <input name="profile_img" id="profile_img" class="form-control" type="file" accept="image/png, image/jpg" size="2097152"><br>
+                    <input type="submit" id="btn" class="btn btn-outline-success" value="Загрузить">
+                </form>
+                <button class="btn-close" easy-toggle=".user-modal" easy-class="open"></button>
+            </div>
+            <div class="overlay" easy-toggle=".user-modal" easy-class="open"></div>
+        </div>
+        <script>
+            function validateForm() {
+                const input = document.getElementById('profile_img');
+                const maxFileSize = 3 * 1024 * 1024; // Максимальный размер файла в байтах (2 МБ)
+
+                if (input.files.length > 0) {
+                    const fileSize = input.files[0].size;
+                    if (fileSize > maxFileSize) {
+                        alert('Выбранный файл слишком большой. Максимальный размер файла - 3 МБ.');
+                        return false; // Отменить отправку формы
+                    }
+                }
+
+                return true; // Разрешить отправку формы
+            }
+        </script>
+
+        <article class="friends">
+            <div class="friends-list">
+                <p class="friends-text">Друзья</p>
+                {% set friend_columns = friend_status + 1 %}
+                {% if friends_id %}
+                    {% for friend_index in range(friend_columns) %}
+                    <div class="row gx-3">
+                        {% if friend_index == 0 %}
+                            <button class="btn-add-friend friends-list-col d-flex align-items-center" easy-toggle="#add-friend" easy-class="show">
+                                <img src="/static/images/add_friend.png" class="friend-img" alt="Friend img">
+                                <p class="friend-name">Добавить друга</p>
+                            </button>
+                        {% else %}
+                            {% if friends_id[friend_index - 1] %}
+                                {% set friend_id = friends_id[friend_index - 1] %}
+                                <button class="btn-friend friends-list-col d-flex align-items-center" easy-toggle=".friend-modal" easy-class="show" data-friend-id="{{ friend_id }}" data-friend-name="{{ friend_name }}">
+                                    {% if friend_id in friends_img %}
+                                        <img src="/static/images/{{ friend_id }}.png" class="friend-img" alt="Friend img">
+                                    {% else %}
+                                        <img src="/static/images/default.png" class="friend-img" alt="Friend img">
+                                    {% endif %}
+                                    <p class="friend-name">{{ friends[friend_index - 1] }}</p>
+                                    <div class="status-online"></div>
+                                    <div class="status-text">online</div>
+                                </button>
+
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="row gx-3">
+                        <button class="btn-add-friend friends-list-col d-flex align-items-center" easy-toggle="#add-friend" easy-class="show">
+                            <img src="/static/images/add_friend.png" class="friend-img" alt="Friend img">
+                            <p class="friend-name">Добавить друга</p>
+                        </button>
+                    </div>
+                {% endif %}
+
+
+
+                <style>
+                    .friends {
+                    width: {{ 206 }}px;
+                    height: {{ 97 + 60 * friend_status }}px;
+                    }
+                </style>
+
+            </div>
+        </article>
+
+        <!--обработка нажатий кнопки добавления в друзья-->
+        <div id="add-friend" class="modal">
+            <div class="modal_window">
+                <h1 class="time_modal_window" id="modal-text-1">Добавить друга</h1>
+                <form method="post" action="{{ url_for('add_friend') }}">
+                    <input type="text" name="ids_friend" id="ids_friend" class="form-control" placeholder="Введите никнейм или id друга" required><br>
+                    <input type="submit" id="btn" class="btn1 btn-outline-success" value="Найти">
+                </form>
+                <button class="btn-close" easy-toggle="#add-friend" easy-class="open"></button>
+            </div>
+            <div class="overlay" easy-toggle="#add-friend" easy-class="open"></div>
+        </div>
+
+        <!--обработка нажатий кнопки друзья-->
+        <div class="modal friend-modal">
+            <div class="modal_window">
+                <h1 class="friend-modal-text"></h1>
+                <form method="post" action="{{ url_for('del_friend') }}">
+                    <input type="hidden" name="friend_id" id="friend_id_input" value="">
+                    <button type="submit" class="del-friend btn btn-outline-danger">Удалить друга</button>
+                </form>
+                <button class="btn-close" easy-toggle=".friend-modal" easy-class="open"></button>
+            </div>
+            <div class="overlay" easy-toggle=".friend-modal" easy-class="open"></div>
+        </div>
+
+        <article class="time-window">
+            <div class="container time-window-container">
+                <div class="row gx-3">
+                    <button class="btn-time time-window-col d-flex align-items-center justify-content-center" easy-toggle="#categories" easy-class="show">{{ times[-1] }}</button>
+                    <button class="btn-time time-window-col d-flex align-items-center justify-content-center" easy-toggle="#categories" easy-class="show">{{ times[-2] }}</button>
+                </div>
+                <div class="row gx-3">
+                    <button class="btn-time time-window-col d-flex align-items-center justify-content-center" easy-toggle="#categories" easy-class="show">{{ times[-3] }}</button>
+                    <button class="btn-time time-window-col d-flex align-items-center justify-content-center" easy-toggle="#categories" easy-class="show">{{ times[-4] }}</button>
+                </div>
+                <div class="row gx-3">
+                    <button class="btn-time time-window-col d-flex align-items-center justify-content-center" easy-toggle="#categories" easy-class="show">{{ times[-5] }}</button>
+                    <button class="btn-time time-window-col d-flex align-items-center justify-content-center" easy-toggle="#categories" easy-class="show">{{ times[-6] }}</button>
+                </div>
+            </div>
+        </article>
+
+
+        <!--обработка нажатий кнопок времени-->
+        <div id="categories" class="modal">
+            <div class="modal_window">
+                <h1 class="time_modal_window" id="modal-text"></h1>
+                <h2 class="time_modal_window" id="modal-comments"></h2>
+                <p class="scramble_modal_window" id="modal-text-scramble"></p>
+                <button class="btn-close" easy-toggle="#categories" easy-class="open"></button>
+            </div>
+            <div class="overlay" easy-toggle="#categories" easy-class="open"></div>
+        </div>
+        <script>
+            const times = {{ times|tojson|safe }} || [];
+            const scrambles = {{ scrambles|tojson|safe }} || [];
+            const comments = {{ comments|tojson|safe }} || [];
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const buttons = document.querySelectorAll(".btn-time");
+                const modalText = document.getElementById("modal-text");
+                const modalComments = document.getElementById("modal-comments");
+                const textScramble = document.getElementById("modal-text-scramble");
+                const friendModalText = document.querySelector(".friend-modal-text");
+                const friendButtons = document.querySelectorAll(".btn-friend");
+
+
+                friendButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        // Извлечь friend_id из атрибута данных data-friend-id
+                        var friendId = button.getAttribute('data-friend-id');
+
+                        // Установить значение friend_id в input внутри модального окна
+                        var friendIdInput = document.querySelector('.friend-modal input[name="friend_id"]');
+                        friendIdInput.value = friendId;
+                    });
+                });
+
+
+
+                buttons.forEach((button, index) => {
+                    button.addEventListener("click", function () {
+                        if (times === '--' || scrambles === '--') {
+                            return; // Проверка на пустые переменные
+                        }
+
+                        const reversedIndex = times.length - 1 - index;
+                        if (reversedIndex < 0 || reversedIndex >= times.length) {
+                            return; // Проверка на корректный индекс
+                        }
+
+                        const buttonText = times[reversedIndex];
+                        modalText.textContent = buttonText;
+                        modalComments.textContent = comments[reversedIndex];
+                        textScramble.textContent = scrambles[reversedIndex];
+                    });
+                });
+                friendButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        // Извлечь friend_id и friend_name из атрибутов данных
+                        var friendId = button.getAttribute('data-friend-id');
+                        const friendName = button.querySelector(".friend-name").textContent;
+                        friendModalText.textContent = friendName;
+
+                        // Установить значение friend_id и friend_name в input и элемент с классом .friend-modal-text
+                        var friendIdInput = document.querySelector('.friend-modal input[name="friend_id"]');
+                        friendIdInput.value = friendId;
+                    });
+                });
+
+            });
+        </script>
+
+
+        <article class="count-window">
+            <div class="row">
+                <div class="count-window-row-1 d-flex align-items-center justify-content-center">
+                    <div class="count-window-col-1 d-flex align-items-center justify-content-center">Кол-во<br>сборок</div>
+                    <div class="count-window-col-2 d-flex align-items-center justify-content-center">{{ count }}</div>
+                </div>
+            </div>
+            <div class="row gx-3">
+                <div class="count-window-row-2 d-flex align-items-center justify-content-center">
+                    <div class="count-window-col-3 d-flex align-items-center justify-content-center">AO5</div>
+                    <div class="count-window-col-4 d-flex align-items-center justify-content-center">{{ ao5 }}</div>
+                </div>
+                <div class="count-window-row-3 d-flex align-items-center justify-content-center">
+                    <div class="count-window-col-3 d-flex align-items-center justify-content-center" id="d">AO10</div>
+                    <div class="count-window-col-4 d-flex align-items-center justify-content-center">{{ ao10 }}</div>
+                </div>
+            </div>
+        </article>
+
+        <article class="settings-window">
+            <div class="row">
+                <button class="settings-col-3 d-flex align-items-center justify-content-center">
+                    <a class="settings">Настройки таймера</a>
+                </button>
+            </div>
+            <div class="row">
+                <button class="settings-col-3 d-flex align-items-center justify-content-center">
+                    <a class="settings">Смена пароля</a>
+                </button>
+            </div>
+            <div class="row">
+                <button class="settings-col-3 d-flex align-items-center justify-content-center" onclick="window.location.href='/exit'">
+                    <a class="settings exit" href="#">Выход</a>
+                </button>
+            </div>
+        </article>
+
+{#        <article class="best-time-window">#}
+{#            <p class="best-5-text">BEST AO5</p>#}
+{#            <div class="list-best-time">#}
+{#                <div class="row">#}
+{#                    <div class="col-3 aa d-flex align-items-center justify-content-center">31.90</div>#}
+{#                    <div class="col-3 bb d-flex align-items-center justify-content-center">30.43</div>#}
+{#                    <div class="col-3 cc d-flex align-items-center justify-content-center">30.43</div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </article>#}
+
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <article class="graph-window">
+            <div class="graph">
+               <div id="plotly-graph"></div>
+
+    <script>
+        // Ваши данные для графика
+        var list1 = {{ times|tojson|safe }};  // Преобразуйте данные в JavaScript-массив
+        var config = { displayModeBar: false };
+
+        if (list1[0] != '--') {
+            // Создайте график Plotly
+            var trace = {
+                x: Array.from({length: list1.length}, (_, i) => i + 1),
+                y: list1,
+                mode: 'lines',
+                type: 'scatter',
+                fill: 'tozeroy',
+                fillcolor: 'rgba(0,159,255,0.2)',
+                line: {
+                    shape: 'spline',
+                    color: 'rgb(12,160,250)'
+                },
+            };
+
+            var layout = {
+
+                width: 300,  // Ширина графика в пикселях
+                height: 220,
+                margin: {
+                    t: 20,  // Верхний отступ
+                    b: 20,  // Нижний отступ
+                    l: 20,  // Левый отступ
+                    r: 20   // Правый отступ
+                },
+                plot_bgcolor: 'rgba(245,0,0,0)',  // Прозрачный цвет фона графика
+                paper_bgcolor: 'rgba(0,255,50,0)',
+                xaxis: {
+                    showgrid: false, // Удалить сетку по оси X
+                    showline: true,
+                },
+                yaxis: {
+                    range: [Math.min.apply(null, list1) - 2 , Math.max.apply(null, list1) + 2],  // Диапазон значений по оси Y
+                    showgrid: false, // Удалить сетку по оси Y
+                    showline: true,
+                },
+            };
+
+        } else {
+            var list1 = [0, 0, 0, 0, 0];
+            var list2 = [1, 2, 3, 4, 5];
+            // Создаем пустой график
+            var trace = {
+                x: Array.from({length: list2.length}, (_, i) => i + 1),  // Значения по оси X
+                y: list1,  // Значения по оси Y (все нули, чтобы график был на оси X)
+                mode: 'lines',
+                type: 'scatter',
+                line: {
+                    color: 'rgb(12,160,250)'  // Цвет линии
+                },
+            };
+            var layout = {
+
+            width: 300,  // Ширина графика в пикселях
+            height: 220,
+            margin: {
+                t: 20,  // Верхний отступ
+                b: 20,  // Нижний отступ
+                l: 20,  // Левый отступ
+                r: 20   // Правый отступ
+            },
+            plot_bgcolor: 'rgba(245,0,0,0)',  // Прозрачный цвет фона графика
+            paper_bgcolor: 'rgba(0,255,50,0)',
+            xaxis: {
+                showgrid: false, // Удалить сетку по оси X
+                showline: true,
+            },
+            yaxis: {
+                range: [Math.min.apply(null, list2) - 1.03, Math.max.apply(null, list2)],  // Диапазон значений по оси Y
+                showgrid: false, // Удалить сетку по оси Y
+                showline: true,
+            },
+        };
+        }
+
+        var data = [trace];
+
+        Plotly.newPlot('plotly-graph', data, layout, config);
+    </script>
+        </article>
+
+
+
+    </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/easy-toggler@2.2.7"></script>
+{% endblock %}

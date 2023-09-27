@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+        <title>SCuberTimer Регистрация</title>
+{% endblock %}
+
+{% block body %}
+    {% for ms in get_flashed_messages() %}
+        <div class="flash">{{ ms }}</div>
+    {% endfor %}
+<div class="container">
+<div class="container singup-container d-flex align-items-center justify-content-center">
+    <h1 class="abc">Регистрация</h1>
+        <form method="post">
+            <div class="row gx-5">
+                <p class="col singup-text justify-content-end d-flex align-items-center">Имя пользователя:</p>
+                <input type="text" name="username" id="title" class="form-control singup-input col-2 d-flex align-items-center justify-content-center" placeholder="Введите имя пользователя" maxlength="15" required><br>
+            </div>
+            <div class="row gx-5">
+                <p class="col singup-text justify-content-end d-flex align-items-center">Адрес e-mail:</p>
+            <input type="email" name="email" id="email" class="form-control singup-input col-2 d-flex align-items-center justify-content-center" placeholder="Введите адрес e-mail" required></input><br>
+            </div>
+            <div class="row gx-5">
+                <p class="col singup-text justify-content-end d-flex align-items-center">Пароль:</p>
+                <input type="password" name="password" id="password" class="form-control singup-input col-2 d-flex align-items-center justify-content-center" placeholder="Введите пароль" required></input><br>
+            </div>
+            <div class="row gx-5">
+                <p class="col singup-text justify-content-end d-flex align-items-center">Подтверждение пароля:</p>
+                <input type="password" name="password1" id="password1" class="form-control singup-input col-2 d-flex align-items-center justify-content-center" placeholder="Введите пароль" required></input><br>
+            </div>
+{#            <div class="capcha">#}
+{#                {{ form.hidden_tag() }}#}
+{#                {{ form.recaptcha() }}#}
+{#            </div>#}
+            <input type="submit" id="auth_btnn" class="btn-outline-success d-flex align-items-center justify-content-center" value="Зарегистрироваться">
+            <a href="/login" id="auth_btnnn" class="btn btn-block">Вход</a>
+        </form>
+</div>
+</div>
+{% endblock %}

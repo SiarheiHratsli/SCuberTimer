@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Ранги
+{% endblock %}
+
+{% block body %}
+<table class="table_header">
+    <tr>
+        <td>Date</td>
+    <td>ID</td>
+    <td>Username</td>
+    <td>Email</td>
+    <td>Password</td>
+  </tr>
+</table>
+{% for el in articles %}
+<table class="table">
+  <tr>
+        <td>{{el.date}}</td>
+    <td>{{el.id}}</td>
+    <td>{{el.username}}</td>
+    <td>{{el.email}}</td>
+    <td>{{el.password}}</td>
+  </tr>
+</table>
+{% endfor %}
+
+{% endblock %}
+
+<!--<div class="show">-->
+<!--    <div class="alert-info">-->
+<!--        {{el.id}}-->
+<!--        {{el.username}}-->
+<!--        {{el.email}}-->
+<!--        {{el.password}}-->
+<!--    </div>-->

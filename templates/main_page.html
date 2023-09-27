@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block head %}
+          <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7RE9TDCXL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Z7RE9TDCXL');
+    </script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SCubertimer</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/b06cb81de0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Nunito:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{{ url_for('static', filename='timer.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    {% for ms in get_flashed_messages() %}
+        <div class="compleate">{{ms}}</div>
+    {% endfor %}
+    <div class="container">
+
+            {#    <div class="scramble d-flex justify-content-center text-break text-center" id="scramble">#}
+            {#        <p> F2 B U' B2 R B R L D2 U B D2 U2 D R' L' F2 U' D' R' </p>#}
+            {#    </div>#}
+            <div class="scramble" id="scramble">
+                <p> {{ scramble }} </p>
+            </div>
+            <div class="time">
+                <p id="timer">00.00</p>
+            </div>
+            <div class="container-timer-btn " id="btn_timer">
+                <a href="/plus2" class="btn btn-outline-dark bttn" type="button">+2</a>
+                <a href="/dnf" class="btn btn-outline-dark bttn" type="button">DNF</a>
+                <a href="/del_solves" class="btn btn-outline-danger bttn" type="button"><iconify-icon class="d-flex align-items-center justify-content-center" icon="lucide:delete" height="30"></iconify-icon></a>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <article class="score" id="score">
+                <div class="container">
+                    <div class="row gx-3">
+                        <div class="col d-flex align-items-center justify-content-center">AO5</div>
+                        <div class="col d-flex align-items-center justify-content-center"><span id="ao5">--</span></div>
+                    </div>
+                    <div class="row gx-3">
+                        <div class="col d-flex align-items-center justify-content-center">AO10</div>
+                        <div class="col d-flex align-items-center justify-content-center"><span id="ao10">--</span></div>
+                    </div>
+                    <div class="row gx-3">
+                        <div class="col d-flex align-items-center justify-content-center">AO100</div>
+                        <div class="col d-flex align-items-center justify-content-center"><span id="ao100">--</span></div>
+                    </div>
+                    <div class="row gx-3">
+                        <div class="col d-flex align-items-center justify-content-center">MEAN</div>
+                        <div class="col d-flex align-items-center justify-content-center"><span id="mean">--</span></div>
+                    </div>
+                </div>
+        </article>
+    </div>
+{% endblock %}
